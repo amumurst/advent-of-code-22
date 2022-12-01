@@ -1,9 +1,9 @@
-private def solve(elements: List[String], m: List[Int], c: Int): Int =
+private def solve(elements: List[String], maxes: List[Int], current: Int): Int =
   elements match
-    case "" :: rest     => solve(rest, (m :+ c).sorted.tail, 0)
-    case Int(i) :: rest => solve(rest, m, c + i)
-    case err :: rest    => println(s"Bad line $err"); solve(rest, m, c)
-    case Nil            => m.sum
+    case "" :: rest     => solve(rest, (maxes :+ current).sorted.tail, 0)
+    case Int(i) :: rest => solve(rest, maxes, current + i)
+    case err :: rest    => println(s"Bad line $err"); solve(rest, maxes, current)
+    case Nil            => maxes.sum
 
 @main def day1a =
   solve(readFile("1"), List(0), 0).calculate
