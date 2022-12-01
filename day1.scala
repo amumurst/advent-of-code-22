@@ -2,7 +2,7 @@ private def solve(elements: List[String], m: List[Int], c: Int): Int =
   elements match
     case "" :: rest     => solve(rest, (m :+ c).sorted.tail, 0)
     case Int(i) :: rest => solve(rest, m, c + i)
-    case err :: rest    => s"Bad line $err".print; solve(rest, m, c)
+    case err :: rest    => println(s"Bad line $err"); solve(rest, m, c)
     case Nil            => m.sum
 
 @main def day1a =
