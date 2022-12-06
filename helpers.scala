@@ -1,5 +1,6 @@
 export scala.util.chaining._
 def readFile(task: String) = scala.io.Source.fromFile(s"input/$task.txt").getLines().toList
+def readFileLine(task: String) = readFile(task).mkString
 
 object Int:
   def unapply(s: String): Option[Int] = s.toIntOption
